@@ -1,5 +1,4 @@
 <?php
-
 class Model {
     protected static $tableName = '';
     protected static $colums = [];
@@ -23,6 +22,12 @@ class Model {
 
     public function __set($key,$value){
         $this->values[$key] = $value;
+    }
+
+    public static function getOne($filters = [],$columns = '*'){
+        $class = get_called_class();
+        $result = static::getResultSetFromSelect($filters,$columns);
+        return $result ? new $class($result->fetch_assoc()) : null;
     }
 
     public static function get($filters = [],$columns = '*'){
