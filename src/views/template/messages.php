@@ -13,7 +13,7 @@ if($exception){
 
 
 $alertType = '';
-if($message['type'] === 'error'){
+if((!empty($message['type'])) && ($message['type'] === 'error')){
     $alertType = 'danger';
 }else{
     $alertType = 'success';
