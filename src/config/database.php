@@ -28,6 +28,6 @@ class Database{
 
         $id = $conn->insert_id;
         $conn->close();
-        return $id
+        return $id;
     }
 }
