@@ -1,6 +1,6 @@
 <?php
 
-loadModel('WorkingHours');
+//loadModel('WorkingHours');
 
 $wh = WorkingHours::loadFromUserAndDate(1, date('Y-m-d'));
 $workedtInterval = $wh->getWorkedInterval()->format('%H:%I:%S');

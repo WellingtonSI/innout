@@ -8,7 +8,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="day_records.php">
+                <a href="monthly_report.php">
                     <i class="icofont-ui-calendar mr-2"></i>
                     Registrar Mensal
                 </a>
@@ -31,7 +31,8 @@
         <div class="sidebar-widget">
             <i class="icon icofont-hour-glass text-primanry"></i>
             <div class="info">
-                <span class="main text-primary">
+                <span class="main text-primary"
+                    <?= $activeClock === 'workedInterval' ? 'active-clock': ''  ?>>
                     <?=  $workedInterval ?>
                 </span>
                 <span class="label text-muted">Horas Trabalhadas</span>
@@ -41,7 +42,8 @@
         <div class="sidebar-widget">
             <i class="icon icofont-ui-alarm text-danger"></i>
             <div class="info">
-                <span class="main text-danger">
+                <span class="main text-danger" 
+                <?= $activeClock === 'exitTime' ? 'active-clock': ''  ?>>
                     <?= $exitTime ?>
                 </span>
                 <span class="label text-muted">
