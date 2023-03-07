@@ -1,4 +1,6 @@
 <?php
+setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
+date_default_timezone_set('America/Sao_Paulo');
 
 function getDateAsDateTime($date){
     return is_string($date) ? new DateTime($date) : $date;
@@ -68,4 +70,9 @@ function getTimeStringFromSeconds($seconds){
     $m = intdiv($seconds % 3600, 60);
     $s = $seconds - ($h * 3600) - ($m * 60);
     return sprintf('%02d:%02d:%02d', $h, $m, $s);
+}
+
+function formatDateWithLocale($date, $pattern){
+    $time = getDateAsDateTime($date)->getTimestamp();
+    return strftime($pattern,$time);
 }
