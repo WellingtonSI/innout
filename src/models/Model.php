@@ -78,6 +78,11 @@ class Model {
         $sql .="WHERE id = {$this->id}";
         Database::executeSQL($sql);
     }
+
+    public static function getCount($filters = []){
+        $result = static::getResultSetFromSelect($filters, 'count(*) as count');
+        return $result->fetch_assoc()['count'];
+    }
     
     public static function getFilters($filters){
         $sql ='';
@@ -87,7 +92,7 @@ class Model {
                 if($column == 'raw'){
                     $sql .= " AND {$value}";
                 }else{
-                    $sql .=" AND  ${column} = ". static::getFormatedValue($value);
+                    $sql .=" AND  {$column} = ". static::getFormatedValue($value);
                 }
                 
             }

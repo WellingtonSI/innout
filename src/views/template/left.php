@@ -14,9 +14,9 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href=".php">
+                <a href="manager_report.php">
                     <i class="icofont-chart-histogram mr-2"></i>
-                    Registrar Ponto
+                    Registrar Gerencial
                 </a>
             </li>
             <li class="nav-item">
