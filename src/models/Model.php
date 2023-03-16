@@ -59,9 +59,9 @@ class Model {
 
     public function insert(){
         $sql = "INSERT INTO " . static::$tableName . " ("
-            . implode(",", static::$columns) . ") VALUES (";
+            . implode(",", static::$colums) . ") VALUES (";
 
-            foreach(static::$columns as $col){
+            foreach(static::$colums as $col){
                 $sql .= static::getFormatedValue($this->$col) . ",";
             }
             $sql[strlen($sql) - 1] = ')';
@@ -71,7 +71,7 @@ class Model {
 
     public function update(){
         $sql = "UPDATE ". static::$tableName . " SET";
-        foreach(static::$columns as $col){
+        foreach(static::$colums as $col){
             $sql .=" ${col} = " . static::getFormatedValue($this->$col) . ",";
         }
         $sql[strlen($sql) - 1] = ' ';
