@@ -1,8 +1,10 @@
 <?php
     session_start();
-    requireValidSession();
+    requireValidSession(true);
 
 $exception = null;
+
+
 if(isset($_GET['delete'])){
     try{
         User::deleteById(($_GET['delete']));
